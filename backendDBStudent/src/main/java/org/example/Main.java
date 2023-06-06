@@ -1,7 +1,19 @@
-package org.example;
+//package org.example;
+package backendDBStudent.src.main.java.org.example;
+
+import java.io.IOException;
 
 public class Main {
+//    public static void main(String[] args) {
+//        System.out.println("Hello world!");
+//    }
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        WebServer webServer = new WebServer();
+        try {
+            webServer.startServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
