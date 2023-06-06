@@ -21,22 +21,53 @@ body {
 .input-data {
     margin: 0 auto;
     width: 350px;
-    height: 700px;
+    height: auto;
     margin-top: 50px;
     background-color: rgb(76, 59, 93);
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
+    display: none;
+}
+
+.input-container_1 {
+    display: block;
 }
 
 .input-data-form {}
 
-.form__contol {
+.form__control {
+    height: 200px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
 }
 
-.form__input {
+.control__input {
     width: 230px;
+    height: 25px;
+    border-radius: 4px;
+}
+
+.control__input:focus {
+    background-color: rgba(246, 246, 52, 0.892);
+    outline: none;
+}
+
+.btn__container {
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    width: 90px;
+    height: 25px;
+    background-color: rgba(242, 153, 51, 0.648);
 }
