@@ -21,7 +21,7 @@ public class WebServer {
 
 		@PostMapping("/addSpeciality")
 		public String addSubject(@RequestBody String data) {
-			System.out.println("Received data: " + data);
+			System.out.println("Received Speciality: " + data);
 
 			// Здесь вы можете добавить логику для обработки данных
 			// и записи их в таблицу на PostgreSQL
