@@ -16,11 +16,6 @@
             <div class="header__container">
                 <div class="nav_container">
                     <div class="ul_container">
-                        <ul class="ul__item">
-                            <li>
-                                <div class="nav-btn" id="printStudents">Список</div>
-                            </li>
-                        </ul>
                         <ul class="ul__item ul-active">
                             <li>
                                 <div class="nav-btn" id="addStudent">Добавить студента</div>
@@ -36,12 +31,17 @@
                                 <div class="nav-btn" id="addSpeciality">Добавить Предмет</div>
                             </li>
                         </ul>
+                        <ul class="ul__item">
+                            <li>
+                                <div class="nav-btn" id="printStudents">Список студентов</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </header>
         <div class="container">
-            <div class="input-data input-container_1">
+            <div class="input-data input-container_1 input-data-visible">
                 <form action="" class="input-data-form">
                     <div class="form__control">
                         <div class="control__item control__item_1">
@@ -75,7 +75,7 @@
                 <form action="" class="input-data-form" name="formSubmit">
                     <div class="form__control">
                         <div class="control__item control__item_1">
-                            <input type="text" class="control__input add-specialitys" placeholder="Название специальности">
+                            <input type="text" class="control__input add-speciality" placeholder="Название специальности">
                         </div>
                     </div>
                     <div class="btn__container">
@@ -84,9 +84,39 @@
                     <div class="output-data"></div>
                 </form>
             </div>
+
+            <div class="input-data input-container_3">
+                <form action="" class="input-data-form" name="formSubmit">
+                    <div class="form__control">
+                        <div class="control__item control__item_1">
+                            <input type="text" class="control__input add-subject" placeholder="Название предмета">
+                        </div>
+                    </div>
+                    <div class="btn__container">
+                        <button class="submit-btn">Отправить</button>
+                    </div>
+                    <div class="output-data"></div>
+                </form>
+            </div>
+
+            <div class="input-data input-container_4">
+                <form action="" class="input-data-form" name="formSubmit">
+                    <div class="form__control">
+                        <div class="control__item control__item_1">
+                            <input type="text" class="control__input" placeholder="вывод данных">
+                        </div>
+                    </div>
+                    <div class="btn__container">
+                        <button class="submit-btn">Отправить</button>
+                    </div>
+                    <div class="output-data"></div>
+                </form>
+            </div>
+
         </div>
     </div>
 </body>
 <script src="./js/script.js"></script>
+<script src="./js/header.js"></script>
 
 </html>
