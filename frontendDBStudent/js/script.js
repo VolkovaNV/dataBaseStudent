@@ -1,5 +1,8 @@
 const url = 'http://localhost:8000';
 
+const delay = ms => {
+    return new Promise(r => setTimeout(() => r(), ms()))
+}
 
 let student = {
         firstName: '',
@@ -22,15 +25,13 @@ let options = {
 
 
 async function postData(varUrl) {
-
     try {
         const response = await fetch(varUrl, options)
         const res = await response.json()
         console.log('Response: ', res);
-
+        await delay(2000)
     } catch (e) {
         console.log('ErrrroR:', e);
-
     }
 }
 
