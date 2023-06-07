@@ -9,8 +9,18 @@ public class WebServer {
 	@CrossOrigin(origins = "*") // Разрешаем запросы с любого источника
 	@RestController
 	public static class DataController {
-		@PostMapping("/data")
-		public String postData(@RequestBody String data) {
+		@PostMapping("/addStudent")
+		public String addStudent(@RequestBody String data) {
+			System.out.println("Received data: " + data);
+
+			// Здесь вы можете добавить логику для обработки данных
+			// и записи их в таблицу на PostgreSQL
+
+			return data;
+		}
+
+		@PostMapping("/addSpeciality")
+		public String addSubject(@RequestBody String data) {
 			System.out.println("Received data: " + data);
 
 			// Здесь вы можете добавить логику для обработки данных
