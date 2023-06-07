@@ -1,4 +1,3 @@
-const formSubmit = document.querySelector('.input-data-form');
 const url = 'http://localhost:8000';
 
 
@@ -32,11 +31,7 @@ async function postData(varUrl) {
     }
 }
 
-
-
-
-//postData(url)
-
+const formSubmit = document.querySelector('.input-data-form');
 formSubmit.addEventListener('submit', () => {
     postData(url)
     let dataInputs = document.querySelectorAll('.reg-student');
