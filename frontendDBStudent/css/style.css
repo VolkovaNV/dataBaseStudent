@@ -21,7 +21,7 @@ body {
 
 .input-data {
     margin: 0 auto;
-    width: 350px;
+    width: 300px;
     height: auto;
     margin-top: 50px;
     background-color: rgb(76, 59, 93);
@@ -31,29 +31,37 @@ body {
     display: none;
 }
 
-.input-container_1 {
+.input-data-visible {
     display: block;
 }
 
 .input-data-form {}
 
 .form__control {
-    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 18px;
     margin-top: 10px;
 }
 
 .control__input {
     width: 230px;
-    height: 25px;
+    height: 33px;
     border-radius: 4px;
+    font-size: 17px;
+    color: white;
+    letter-spacing: 0.8px;
+    background-color: rgb(148, 124, 172);
+}
+
+.control__input::placeholder {
+    color: white;
 }
 
 .control__input:focus {
-    background-color: rgba(246, 246, 52, 0.892);
+    background-color: rgb(76, 59, 93);
     outline: none;
 }
 
