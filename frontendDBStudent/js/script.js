@@ -1,8 +1,8 @@
 const url = 'http://localhost:8000';
 
-const delay = ms => {
-    return new Promise(r => setTimeout(() => r(), ms()))
-}
+// const delay = ms => {
+//     return new Promise(r => setTimeout(() => r(), ms))
+// }
 
 let student = {
         firstName: '',
@@ -29,10 +29,9 @@ async function postData(varUrl) {
         const response = await fetch(varUrl, options)
         const res = await response.json()
         console.log('Response: ', res);
-        await delay(2000)
     } catch (e) {
         console.log('ErrrroR:', e);
-    }
+    } finally {}
 }
 
 const formSubmit = document.querySelectorAll('.input-data-form');
@@ -40,7 +39,8 @@ const addStudent = document.querySelector('.input-container_1'),
     addSpeciality = document.querySelector('.input-container_2');
 
 formSubmit.forEach(form => {
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
         if (addStudent.classList.contains('input-data-visible')) {
             let dataStudent = document.querySelectorAll('.reg-student');
             setStudent(dataStudent);
@@ -50,6 +50,7 @@ formSubmit.forEach(form => {
             newUrl = url + '/addStudent';
             postData(newUrl)
             console.log(newUrl);
+
 
         } else if (addSpeciality.classList.contains('input-data-visible')) {
             console.log("addSpecility");
