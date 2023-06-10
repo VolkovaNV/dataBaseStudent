@@ -5,19 +5,20 @@ const url = 'http://localhost:8000';
 // }
 
 let student = {
-        firstName: '',
-        secondName: '',
-        id_speciality: 0,
-        course: 0,
-        numGroup: '',
-    },
-    speciality = {
-        name_speciality: ''
-    }
+    firstName: '',
+    secondName: '',
+    id_speciality: 0,
+    course: 0,
+    numGroup: '',
+};
+
+let speciality = {
+    name_speciality: 'fuck'
+};
 
 let options = {
     method: 'POST',
-    body: JSON.stringify(student),
+    body: JSON.stringify(),
     headers: {
         'Content-Type': 'application/json'
     }
@@ -52,14 +53,17 @@ formSubmit.forEach(form => {
             postData(newUrl)
             console.log(newUrl);
 
-
         } else if (addSpeciality.classList.contains('input-data-visible')) {
             console.log("addSpecility");
 
-            let nameSpeciality = document.querySelector('.add-speciality')
+            let nameSpeciality = document.querySelector('.add-speciality').value;
+            console.log("Before:", speciality);
 
-            speciality.name_speciality = nameSpeciality.value;
-            options.body = JSON.stringify(speciality);
+            speciality.name_speciality = nameSpeciality;
+            console.log("after: ", speciality.name_speciality);
+
+            options.body = JSON.stringify(speciality.name_speciality);
+
 
             newUrl = url + '/addSpeciality'
             postData(newUrl)

@@ -13,11 +13,14 @@ public class WebServer {
 	@RestController
 	public static class DataController {
 		private final StudentRepository studentRepository;
+		private final SpecialityRepository specialityRepository;
 		private final JdbcTemplate jdbcTemplate;
 		@Autowired
-		public DataController(StudentRepository studentRepository, JdbcTemplate jdbcTemplate) {
+		public DataController(StudentRepository studentRepository, SpecialityRepository specialityRepository,
+							  JdbcTemplate jdbcTemplate) {
 
 			this.studentRepository = studentRepository;
+			this.specialityRepository = specialityRepository;
 			this.jdbcTemplate = jdbcTemplate;
 		}
 		@PostMapping("/addStudent")
@@ -28,21 +31,21 @@ public class WebServer {
 			System.out.println("Курс: " + student.getCourse());
 			System.out.println("Номер группы: " + student.getGroupNumber());
 
-			// Здесь вы можете добавить логику для обработки данных
-			// и записи их в таблицу на PostgreSQL
-			return studentRepository.addStudent(student);
 
-			//return student;//new ResponseEntity<>(name, HttpStatus.OK);
+			return studentRepository.addStudent(student);
 		}
 
+//		@PostMapping("/addSpeciality")
+//		public Speciality addSpeciality(@RequestBody Speciality speciality) {
+//			System.out.println("Received Speciality: " + speciality.getSpeciality());
+//
+//			return specialityRepository.addSpeciality(speciality);
+//		}
 		@PostMapping("/addSpeciality")
-		public String addSubject(@RequestBody String subject) {
-			System.out.println("Received Speciality: " + subject);
+		public String addSpeciality(@RequestBody String specility){
+			System.out.println("Received Speciality: " + specility);
 
-			// Здесь вы можете добавить логику для обработки данных
-			// и записи их в таблицу на PostgreSQL
-
-			return subject;
+			return specialityRepository.addSpeciality(specility);
 		}
 	}
 }

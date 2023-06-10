@@ -58,7 +58,7 @@ public class Student {
         this.course = course;
     }
 
-    public void setGroupNumber(String groupNumber) {
+    public void setGroupNumber(String numGroup) {
         this.numGroup = numGroup;
     }
 }
