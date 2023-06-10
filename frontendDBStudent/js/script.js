@@ -9,7 +9,7 @@ let student = {
         secondName: '',
         id_speciality: 0,
         course: 0,
-        numGroup: 0
+        numGroup: '',
     },
     speciality = {
         name_speciality: ''
@@ -37,7 +37,7 @@ async function postData(varUrl) {
 const formSubmit = document.querySelectorAll('.input-data-form');
 const addStudent = document.querySelector('.input-container_1'),
     addSpeciality = document.querySelector('.input-container_2');
-
+/////////////ТРЕБУЕТСЯ ОЧИСТКА ПОЛЕЙ
 formSubmit.forEach(form => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -48,6 +48,7 @@ formSubmit.forEach(form => {
             options.body = JSON.stringify(student);
 
             newUrl = url + '/addStudent';
+
             postData(newUrl)
             console.log(newUrl);
 
