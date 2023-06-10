@@ -13,7 +13,11 @@ let student = {
 };
 
 let speciality = {
-    name_speciality: 'fuck'
+    name_speciality: ''
+};
+
+let subject = {
+    name_subject: ''
 };
 
 let options = {
@@ -37,36 +41,39 @@ async function postData(varUrl) {
 
 const formSubmit = document.querySelectorAll('.input-data-form');
 const addStudent = document.querySelector('.input-container_1'),
-    addSpeciality = document.querySelector('.input-container_2');
+    addSpeciality = document.querySelector('.input-container_2'),
+    addSubject = document.querySelector('.input-container_3');
 /////////////ТРЕБУЕТСЯ ОЧИСТКА ПОЛЕЙ
 formSubmit.forEach(form => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        if (addStudent.classList.contains('input-data-visible')) {
+        if (addStudent.classList.contains('input-data-visible')) { //Отправка данных студента
             let dataStudent = document.querySelectorAll('.reg-student');
             setStudent(dataStudent);
 
             options.body = JSON.stringify(student);
 
             newUrl = url + '/addStudent';
-
             postData(newUrl)
-            console.log(newUrl);
 
-        } else if (addSpeciality.classList.contains('input-data-visible')) {
-            console.log("addSpecility");
-
+        } else if (addSpeciality.classList.contains('input-data-visible')) { //Отправка названия специальности
             let nameSpeciality = document.querySelector('.add-speciality').value;
-            console.log("Before:", speciality);
 
             speciality.name_speciality = nameSpeciality;
-            console.log("after: ", speciality.name_speciality);
 
             options.body = JSON.stringify(speciality.name_speciality);
 
-
             newUrl = url + '/addSpeciality'
             postData(newUrl)
+
+        } else if (addSubject.classList.contains('input-data-visible')) { //Отправка названия предмета
+            let nameSubject = document.querySelector('.add-subject').value;
+
+            subject.name_subject = nameSubject;
+            options.body = JSON.stringify(subject.name_subject);
+            newUrl = url + '/addSubject';
+
+            postData(newUrl);
         }
     });
 })
