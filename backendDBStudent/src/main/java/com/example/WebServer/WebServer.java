@@ -14,13 +14,15 @@ public class WebServer {
 	public static class DataController {
 		private final StudentRepository studentRepository;
 		private final SpecialityRepository specialityRepository;
+		private final SubjectRepository subjectRepository;
 		private final JdbcTemplate jdbcTemplate;
 		@Autowired
-		public DataController(StudentRepository studentRepository, SpecialityRepository specialityRepository,
+		public DataController(StudentRepository studentRepository, SpecialityRepository specialityRepository, SubjectRepository subjectRepository,
 							  JdbcTemplate jdbcTemplate) {
 
 			this.studentRepository = studentRepository;
 			this.specialityRepository = specialityRepository;
+			this.subjectRepository = subjectRepository;
 			this.jdbcTemplate = jdbcTemplate;
 		}
 		@PostMapping("/addStudent")
@@ -46,6 +48,13 @@ public class WebServer {
 			System.out.println("Received Speciality: " + specility);
 
 			return specialityRepository.addSpeciality(specility);
+		}
+
+		@PostMapping("/addSubject")
+		public String addSubject(@RequestBody String subject){
+			System.out.println("Received Speciality: " + subject);
+
+			return subjectRepository.addSubject(subject);
 		}
 	}
 }
