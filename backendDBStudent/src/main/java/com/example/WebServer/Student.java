@@ -3,25 +3,25 @@ package com.example.WebServer;
 import netscape.javascript.JSObject;
 
 public class Student {
-    private String lastName;
     private String firstName;
-    private int specialityNumber;
+    private String secondName;
+    private int id_speciality;
     private int course;
-    private String groupNumber;
+    private String numGroup;
 
-    public Student(String lastName, String firstName, int specialityNumber, int course, String groupNumber) {
+    public Student(String secondName, String firstName, int id_speciality, int course, String numGroup) {
 
-        this.lastName = lastName;
         this.firstName = firstName;
-        this.specialityNumber = specialityNumber;
+        this.secondName = secondName;
+        this.id_speciality = id_speciality;
         this.course = course;
-        this.groupNumber = groupNumber;
+        this.numGroup = numGroup;
     }
 
     // Геттеры для доступа к полям
 
-    public String getLastName() {
-        return lastName;
+    public String getSecondName() {
+        return secondName;
     }
 
     public String getFirstName() {
@@ -29,7 +29,7 @@ public class Student {
     }
 
     public int getSpecialityNumber() {
-        return specialityNumber;
+        return id_speciality;
     }
 
     public int getCourse() {
@@ -37,21 +37,21 @@ public class Student {
     }
 
     public String getGroupNumber() {
-        return groupNumber;
+        return numGroup;
     }
 
     // Сеттеры для установки значений полей
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
     public void setSpecialityNumber(int specialityNumber) {
-        this.specialityNumber = specialityNumber;
+        this.id_speciality = specialityNumber;
     }
 
     public void setCourse(int course) {
@@ -59,7 +59,7 @@ public class Student {
     }
 
     public void setGroupNumber(String groupNumber) {
-        this.groupNumber = groupNumber;
+        this.numGroup = numGroup;
     }
 }
 
