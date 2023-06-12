@@ -1,5 +1,7 @@
 package com.example.WebServer;
 
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
@@ -36,13 +38,6 @@ public class WebServer {
 
 			return studentRepository.addStudent(student);
 		}
-
-//		@PostMapping("/addSpeciality")
-//		public Speciality addSpeciality(@RequestBody Speciality speciality) {
-//			System.out.println("Received Speciality: " + speciality.getSpeciality());
-//
-//			return specialityRepository.addSpeciality(speciality);
-//		}
 		@PostMapping("/addSpeciality")
 		public String addSpeciality(@RequestBody String specility){
 			System.out.println("Received Speciality: " + specility);
@@ -55,6 +50,14 @@ public class WebServer {
 			System.out.println("Received Speciality: " + subject);
 
 			return subjectRepository.addSubject(subject);
+		}
+		@GetMapping("/getTable")
+		public List<Map<String, Object>> getStudentTable() {
+			//String query = "SELECT * FROM \"Student\"";
+			String query = "SELECT \"Student\".first_name, \"Student\".second_name, \"Student\".course, \"Student\".num_group, \"Speciality\".name_speciality\n" +
+					"FROM \"Student\"\n" +
+					"JOIN \"Speciality\" ON \"Student\".id_speciality = \"Speciality\".id_speciality;\n";
+			return jdbcTemplate.queryForList(query);
 		}
 	}
 }
